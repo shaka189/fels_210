@@ -1,5 +1,5 @@
-DEVELOPMENT: e_learning_system_development
-PRODUCTION: e_learning_system_production
-TEST: e_learning_system_test
-USERNAME: root
-PASSWORD: 12345678
+DEVELOPMENT: "e_learning_system_development"
+PRODUCTION: "e_learning_system_production"
+TEST: "e_learning_system_test"
+USERNAME: "root"
+PASSWORD: "123"
