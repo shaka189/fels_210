@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get "words/new"
-  get "words/show"
-  get "categories/new"
-  get "categories/show"
-  get "activities/new"
-  get "activities/show"
-  get "lessons/new"
-  get "lessons/show"
+  root "static_pages#home"
+  resources :words, only: %i(index show)
+  resources :categories, only: %i(index show)
+  resources :activities, only: %i(index show)
+  resources :lessons, only: %i(index show)
   devise_for :users
   resources :users do
     member do
