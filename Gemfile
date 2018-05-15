@@ -7,6 +7,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "3.3.7"
 gem "carrierwave", "1.1.0"
 gem "coffee-rails", "~> 4.2"
+gem "config"
 gem "devise"
 gem "faker", :git => "https://github.com/stympy/faker.git", :branch => "master"
 gem "figaro"

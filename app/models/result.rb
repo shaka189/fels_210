@@ -1,4 +1,4 @@
 class Result < ApplicationRecord
   belongs_to :answer
-  belong_to :lesson
+  belongs_to :lesson
 end
