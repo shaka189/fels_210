@@ -1,2 +1,10 @@
 en:
   home: "E-learning"
+  devise:
+    registrations:
+      edit:
+        update: "Update"
+      new:
+        sign_up: "Sign up"
+        login: "Login"
+
