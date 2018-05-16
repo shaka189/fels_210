@@ -13,4 +13,6 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  paginates_per Settings.perpage
+  scope :order_date_desc, ->{order created_at: :desc}
 end

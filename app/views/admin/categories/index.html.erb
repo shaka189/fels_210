@@ -1,0 +1,17 @@
+<div class="row">
+  <%= link_to t("create_category"), new_admin_category_path, class: "btn btn-info"%>
+  <br/><br/>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".name" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "category", collection: @categories %>
+      </tbody>
+    </table>
+    <%= paginate @categories %>
+  </div>
+</div>
