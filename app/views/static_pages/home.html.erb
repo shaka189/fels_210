@@ -2,7 +2,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for current_user %>
+        <%= gravatar_for current_user, size: 50 %>
       </h1>
       <p>
         <%= current_user.email %>
@@ -10,5 +10,5 @@
     </section>
   </aside>
   <%= link_to t(".wordslist"), words_path, class: "btn btn-primary" %>
-  <%= link_to t(".startlesson"), lessons_path, class: "btn btn-primary" %>
+  <%= link_to t(".startlesson"), categories_path, class: "btn btn-primary" %>
 </div>

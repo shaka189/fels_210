@@ -1,6 +1,6 @@
 User.create!(email: "viettienn97@gmail.com",
-             password: "123123",
-             password_confirmation: "123123",
+             password: "123456",
+             password_confirmation: "123456",
              admin: true)
 
 10.times do |n|
