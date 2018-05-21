@@ -34,7 +34,7 @@ class Admin::CategoriesController < Admin::BaseController
     else
       flash[:danger] = t "flash.delete_fail"
     end
-      redirect_to admin_categories_path
+    redirect_to admin_categories_path
   end
 
   private
