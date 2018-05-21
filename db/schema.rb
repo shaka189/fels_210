@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_011622) do
 
   create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "status"
+    t.boolean "status", default: false
     t.integer "progress"
     t.bigint "user_id"
     t.bigint "category_id"

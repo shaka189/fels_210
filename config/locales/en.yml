@@ -1,5 +1,7 @@
 en:
-  home: "E-learning"
+  home:
+    title: "E-learning"
+    login: "Please login"
   devise:
     registrations:
       edit:
@@ -7,4 +9,15 @@ en:
       new:
         sign_up: "Sign up"
         login: "Login"
+    sessions:
+      new:
+        sign_up: "Sign up"
+        login: "Login"
+  words:
+    index:
+      word_list: "Word list"
+      word_content: "Word Content"
+      category: "Category"
+      answer: "Answer"
+
 
