@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user
   before_action :load_user, only: %i(show)
-
   def show;end
 
   private
