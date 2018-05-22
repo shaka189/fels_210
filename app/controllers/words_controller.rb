@@ -4,6 +4,6 @@ class WordsController < ApplicationController
   def new;end
 
   def index
-    @words = Word.select_fields.order_date_desc.page params[:page]
+    @words = Word.includes(:category)select_fields.order_date_desc.page params[:page]
   end
 end

@@ -12,7 +12,6 @@
 <p>
   <b><%= t "total_word" %>:</b>
   <%= @lesson.words.size %>
-
 </p>
 <%= form_for @lesson do |f| %>
   <%= f.hidden_field :status, value: true %>
