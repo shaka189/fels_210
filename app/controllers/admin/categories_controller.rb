@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :load_word, only: %i(update destroy)
+  before_action :load_category, only: %i(update destroy)
 
   def index
     @categories = Category.select_fields.order_date_desc.page params[:page]
@@ -29,12 +29,15 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    if @category.destroy
-      flash[:success] = t "flash.delete"
-    else
-      flash[:danger] = t "flash.delete_fail"
+    begin
+      @category.destroy
+      flash[:success] = t :delete_cate
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @category.errors.add(:exception, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to admin_categories_path
     end
-    redirect_to admin_categories_path
   end
 
   private

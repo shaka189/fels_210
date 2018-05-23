@@ -15,5 +15,5 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   paginates_per Settings.perpage
   scope :order_date_desc, ->{order created_at: :desc}
-  scope :select_fields, ->{select :id, :name, :email}
+  scope :select_fields, ->{select :id, :email}
 end

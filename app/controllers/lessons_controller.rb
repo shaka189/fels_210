@@ -1,9 +1,7 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user
-  before_action :load_lesson, only: [:show, :update, :destroy]
-  before_action :load_category, only: [:create]
-
-  def show;end
+  before_action :load_lesson, only: %i(show update destroy)
+  before_action :load_category, only: %i(create)
 
   def create
     @lesson =  @category.lessons.build user: current_user
@@ -40,7 +38,7 @@ class LessonsController < ApplicationController
   end
 
   def load_lesson
-    @lesson = Lesson.find_by id: params[:id]
+    @lesson = Lesson.includes(:category, words: :answers).find_by id: params[:id]
     return if @lesson
     flash[:danger] = t "flash.cant_find_lesson" + "#{params[:lesson_id]}"
     redirect_to root_path

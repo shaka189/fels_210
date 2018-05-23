@@ -1,0 +1,19 @@
+<div class="col-md-12">
+  <div class="row">
+    </br>
+    <%= link_to "create new User", new_admin_user_path, class: "btn btn-info"%>
+    <br/><br/>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".email" %></th>
+          <th><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "user", collection: @users %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div>
