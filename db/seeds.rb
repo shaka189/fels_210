@@ -15,7 +15,7 @@ end
 10.times do
   name = Faker::Name.name
   description = Faker::Lorem.sentence
-  categories = Category.create!(name: name)
+  categories = Category.create!(name: name, duration: 1)
 
   30.times do
     word = Category.all.sample.words.create!(content: Faker::Lorem.word)

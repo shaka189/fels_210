@@ -20,7 +20,11 @@
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-      <div class="admin-c">
+      <% if user_signed_in? && !current_user.admin? %>
+        <div class="user-c">
+      <% else %>
+        <div>
+      <% end %>
         <%= yield %>
       </div>
     </div>

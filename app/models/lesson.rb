@@ -10,6 +10,11 @@ class Lesson < ApplicationRecord
   scope :order_date_desc, ->{order created_at: :desc}
   validate :words_quantity, on: :create
   scope :select_fields, ->{select :id, :name, :status, :progress}
+  delegate :correct, :to => :answers, :allow_nil => true
+
+  def time_remaining
+    category.duration * 60 - (Time.zone.now - self.created_at).to_i
+  end
 
   private
 
@@ -20,7 +25,6 @@ class Lesson < ApplicationRecord
   end
 
   def create_word
-    @category = Category.find self.category_id
-    self.words = @category.words.limit(Settings.word).order(Arel.sql('RAND()'))
+    self.words = category.words.limit(Settings.word).order(Arel.sql('RAND()'))
   end
 end
