@@ -1,22 +1,37 @@
-<h1><%= t "lesson" %></h1>
-<p>
-  <b><%= t "category" %>:</b>
-  <%= link_to @lesson.category.name, @lesson.category %>
-</p>
-<% if @lesson.status %>
+<div id="clockdiv">
+  <p class="time-text">Time Remaining</p>
+  <span id="time-remain" data-time-remain="<%= @time_remain %>"></span>
+  <div>
+    <span id="minutes"></span>
+    <div class="smalltext"><%= t "time.minutes" %></div>
+  </div>
+  <div>
+    <span id="seconds"></span>
+    <div class="smalltext"><%= t "time.seconds" %></div>
+  </div>
+</div>
+
+<div class="lesson">
+  <h1><%= t "lesson" %></h1>
   <p>
-    <b><%= t "correct_answer" %>:</b>
-    <%= "#{@lesson.answers.correct.size}"%>
+    <b><%= t "category" %>:</b>
+    <%= link_to @lesson.category.name, @lesson.category %>
   </p>
-<% end %>
-<p>
-  <b><%= t "total_word" %>:</b>
-  <%= @lesson.words.size %>
-</p>
-<%= form_for @lesson do |f| %>
-  <%= f.hidden_field :status, value: true %>
-  <%= f.fields_for :results do |result| %>
-    <%= render "question", f: result %>
+  <% if @lesson.status %>
+    <p>
+      <b><%= t "correct_answer" %>:</b>
+      <%= "#{@lesson.answers.correct.size}"%>
+    </p>
   <% end %>
-  <%= f.submit t("submit"), class: "btn btn-primary" unless @lesson.status %>
-<% end %>
+  <p>
+    <b><%= t "total_word" %>:</b>
+    <%= @lesson.words.size %>
+  </p>
+  <%= form_for @lesson do |f| %>
+    <%= f.hidden_field :status, value: true %>
+    <%= f.fields_for :results do |result| %>
+      <%= render "question", f: result %>
+    <% end %>
+    <%= f.submit t("submit"), class: "btn btn-primary" unless @lesson.status %>
+  <% end %>
+</div>
