@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :logged_in_user
-  before_action :load_category, only: %i(show)
+  before_action :load_category, only: :show
 
   def index
     @categories = Category.select_fields.order_date_desc.page params[:page]
@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   private
+
   def load_category
     @category = Category.find_by id: params[:id]
     return if @category

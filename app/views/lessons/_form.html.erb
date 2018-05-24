@@ -1,5 +1,5 @@
 <div id="clockdiv">
-  <p class="time-text">Time Remaining</p>
+  <p class="time-text"><%= t "time_remaining" %></p>
   <span id="time-remain" data-time-remain="<%= @time_remain %>"></span>
   <div>
     <span id="minutes"></span>
@@ -20,7 +20,7 @@
   <% if @lesson.status %>
     <p>
       <b><%= t "correct_answer" %>:</b>
-      <%= "#{@lesson.answers.correct.size}"%>
+      <%= @lesson.correct.size%>
     </p>
   <% end %>
   <p>

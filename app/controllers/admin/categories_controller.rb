@@ -43,7 +43,7 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def category_params
-    params.require(:category).permit :name
+    params.require(:category).permit :name, :duration
   end
 
   def load_category

@@ -12,7 +12,7 @@
       </span>
     <% end %>
   </td>
-  <td><%= lesson.answers.correct.size %> / <%= lesson.words.size %></td>
+  <td><%= lesson.correct.size %> / <%= lesson.words.size %></td>
   <td>
     <% if lesson.status %>
       <%= link_to t("view"), lesson, class: "btn btn-primary" %>
@@ -21,4 +21,3 @@
     <% end %>
   </td>
 </tr>
-

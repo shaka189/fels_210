@@ -1,31 +1,32 @@
-<div class="col-md-10">
-  <div class="card mb-3">
-    <div class="card-header">
-      <h1><%= t "all_word" %></h1>
-    </div>
-    <div class="row">
-
-      <div class="col-md-offset-1">
-      <br>
-      <%= link_to t(:create_word), new_admin_word_url, class: "btn btn-primary" %>
-        <div class="card-body">
+<div class="col-md-10 col-md-offset-3">
+  <div class="col-md-10">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h1><%= t "all_word" %></h1>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-1">
           <br>
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable">
-              <thead>
-                <tr>
-                  <th><%= t "content" %></th>
-                  <th><%= t "category" %></th>
-                  <th><%= t "meaning" %></th>
-                </tr>
-              </thead>
-              <tbody>
-                <%= render @words %>
-              </tbody>
-            </table>
-          </div>
-          <div class="text-center">
-            <%= paginate @words %>
+          <%= link_to t(:create_word), new_admin_word_url, class: "btn btn-primary" %>
+          <div class="card-body">
+            <br>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable">
+                <thead>
+                  <tr>
+                    <th><%= t "content" %></th>
+                    <th><%= t "category" %></th>
+                    <th><%= t "meaning" %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @words %>
+                </tbody>
+              </table>
+            </div>
+            <div class="text-center">
+              <%= paginate @words %>
+            </div>
           </div>
         </div>
       </div>
