@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to user.email, user_path(user) %></td>
   <td><%= link_to admin_user_path(user), method: :delete,
-    data: {confirm: t(".you_sure")} do %>
+    data: {confirm: t("you_sure")} do %>
     <span class="glyphicon glyphicon-trash"></span>
   <% end %></td>
 </tr>

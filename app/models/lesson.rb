@@ -9,7 +9,7 @@ class Lesson < ApplicationRecord
   before_create :create_word
   scope :order_date_desc, ->{order created_at: :desc}
   validate :words_quantity, on: :create
-  scope :select_fields, ->{select :id, :name, :status, :progress}
+  scope :select_fields, ->{select :id, :name, :status, :progress, :created_at, :category_id}
   delegate :correct, :to => :answers, :allow_nil => true
 
   def time_remaining

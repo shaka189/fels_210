@@ -32,6 +32,8 @@
     <%= f.fields_for :results do |result| %>
       <%= render "question", f: result %>
     <% end %>
+    <div class="col-md-6 col-md-offset-3">
     <%= f.submit t("submit"), class: "btn btn-primary" unless @lesson.status %>
+    </div>
   <% end %>
 </div>

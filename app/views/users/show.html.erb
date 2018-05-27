@@ -12,7 +12,19 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
-  <%= link_to t(".wordslist"), words_path, class: "btn btn-primary" %>
-  <%= link_to t(".startlesson"), categories_path, class: "btn btn-primary" %>
   <%= render 'follow_form' if user_signed_in? %>
+  <br/><br/><br/><br/> <br/><br/><br/><br/>
+   <h1 class="text-center"><%= t "lessons" %></h1>
+<table class="table table-hover">
+  <tr>
+    <th><%= t "create_at" %></th>
+    <th><%= t "category" %></th>
+    <th><%= t "status" %></th>
+    <th><%= t "score" %></th>
+    <th></th>
+  </tr>
+  <%= render partial: "lessons/lesson", collection: @lessons  %>
+</table>
+<%= paginate @lessons %>
+
 </div>

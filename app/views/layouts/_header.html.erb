@@ -22,11 +22,20 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to edit_user_registration_path(current_user) do %>
+                  <span class="glyphicon glyphicon-user"></span><%= t(".edit_profile") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path do %>
+                  <span class="glyphicon glyphicon-user"></span><%= t(".users") %>
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <span class="glyphicon glyphicon-log-out"></span><%= t(".logout") %>
                 <% end %>
               </li>
-              <li><%= link_to t(".setting"), edit_user_registration_path(current_user) %></li>
             </ul>
           </li>
         <% end %>

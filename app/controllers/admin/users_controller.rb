@@ -2,7 +2,8 @@ class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: %i(destroy)
 
   def index
-    @users = User.select_fields.order_date_desc.page params[:page]
+    @q = User.search params[:q]
+    @users = @q.result.select_fields.order_date_desc.page params[:page]
   end
 
   def new
