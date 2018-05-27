@@ -1,13 +1,15 @@
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= t ".name" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "category", collection: @categories %>
-    </tbody>
-  </table>
-  <%= paginate @categories %>
+<div class="col-md-9 col-md-offset-3">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".name" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "category", collection: @categories %>
+      </tbody>
+    </table>
+    <%= paginate @categories %>
+  </div>
 </div>

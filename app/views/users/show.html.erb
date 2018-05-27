@@ -2,13 +2,17 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user, size: Settings.gravatar %>
+        <%= gravatar_for @user, size: 50 %>
       </h1>
       <p>
         <%= @user.email %>
       </p>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <%= link_to t(".wordslist"), words_path, class: "btn btn-primary" %>
   <%= link_to t(".startlesson"), categories_path, class: "btn btn-primary" %>
+  <%= render 'follow_form' if user_signed_in? %>
 </div>

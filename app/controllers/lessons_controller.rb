@@ -3,6 +3,10 @@ class LessonsController < ApplicationController
   before_action :load_lesson, only: %i(show update destroy)
   before_action :load_category, only: %i(create)
 
+  def show
+    @time_remain = @lesson.time_remaining
+  end
+
   def create
     @lesson =  @category.lessons.build user: current_user
     if @lesson.save
