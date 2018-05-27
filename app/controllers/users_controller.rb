@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def show
     @unfollow_user = current_user.active_relationships.find_by followed_id: @user.id
     @follow_user = current_user.active_relationships.build
+    @lessons = User.find(params[:id]).lessons.select_fields.order_date_desc.page params[:page]
+    @activities = current_user.activities.order_date_desc
   end
 
   def following

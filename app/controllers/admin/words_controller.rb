@@ -3,7 +3,8 @@ class Admin::WordsController < Admin::BaseController
   before_action :load_category, only: %i(create update)
 
   def index
-    @words = Word.select_fields.order_date_desc.page params[:page]
+    @q = Word.search params[:q]
+    @words = @q.result.select_fields.order_date_desc.page params[:page]
   end
 
   def new
@@ -15,7 +16,7 @@ class Admin::WordsController < Admin::BaseController
     if @word.save
       flash[:success] = t "flash.create_success"
     else
-      flash[:danger] = t "flash.create_fail"
+      flash[:danger] = t ".flash.create_fail"
     end
     redirect_to admin_words_path
   end

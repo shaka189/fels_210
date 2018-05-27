@@ -3,11 +3,12 @@ class CategoriesController < ApplicationController
   before_action :load_category, only: :show
 
   def index
-    @categories = Category.select_fields.order_date_desc.page params[:page]
+    @q = Category.search params[:q]
+    @categories = @q.result.select_fields.order_date_desc.page params[:page]
   end
 
   def show
-    @lessons = @category.lessons.all
+    @lessons = @category.lessons.select_fields.order_date_desc.page params[:page]
   end
 
   private

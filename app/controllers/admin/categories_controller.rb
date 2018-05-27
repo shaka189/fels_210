@@ -2,7 +2,8 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, only: %i(edit update destroy)
 
   def index
-    @categories = Category.select_fields.order_date_desc.page params[:page]
+     @q = Category.search params[:q]
+    @categories = @q.result.select_fields.order_date_desc.page params[:page]
   end
 
   def new

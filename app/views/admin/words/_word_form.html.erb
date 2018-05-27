@@ -11,7 +11,7 @@
     <%= render "answer_fields", f: builder %>
   <% end %>
   <p><%= link_to_add_fields (t "add_answer"), f, :answers %></p>
-  <div class="col-md-6">
-    <%= f.submit t(".create"), class: "btn btn-primary" %>
+  <div class="col-md-8 col-md-offset-5">
+    <%= f.submit t("create"), class: "btn btn-primary" %>
   </div>
 <% end %>

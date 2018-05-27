@@ -4,3 +4,9 @@ perpage: 20
 gravatar: 60
 word: 10
 answer: 1
+category_name: 50
+word_meaning: 8
+filter_options:
+  - all
+  - learned
+  - unlearned

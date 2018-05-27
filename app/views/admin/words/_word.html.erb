@@ -5,7 +5,7 @@
   <td><%= link_to edit_admin_word_path(word) do %>
     <span class="glyphicon glyphicon-edit"></span>
   <% end %></td>
-  <td><%= link_to admin_word_path(word), method: :delete, data: {confirm: t(".you_sure")} do %>
+  <td><%= link_to admin_word_path(word), method: :delete, data: {confirm: t("you_sure")} do %>
     <span class="glyphicon glyphicon-trash"></span>
   <% end %></td>
 </tr>

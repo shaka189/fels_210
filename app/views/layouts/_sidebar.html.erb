@@ -1,18 +1,18 @@
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 <div class="sidebar-nav">
-    <div class="well" style="width:300px; padding: 8px 0;">
+<div class="col-md-4">
+  <div class="well" style="width:300px; padding: 8px 0;">
     <ul class="nav nav-list">
       <li class="nav-header">Admin Menu</li>
-      <li><%= link_to t(:dashboard), admin_root_path %></li>
+      <li><%= link_to t("dashboard"), admin_root_path %></li>
       <li class="divider"></li>
-          <li><%= link_to t(:user), admin_users_path %></li>
-          <li class="divider"></li>
-          <li><%= link_to t(:categories), admin_categories_path %></li>
-          <li class="divider"></li>
-          <li><%= link_to t(:word), admin_words_path %></li>
-          <li class="divider"></li>
-          <li><%= link_to t(:lesson), admin_lessons_path %></li>
-          <li class="divider"></li>
+        <li><%= link_to t("user"), admin_users_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to t("category"), admin_categories_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to t("word"), admin_words_path %></li>
+        <li class="divider"></li>
     </ul>
   </div>
+</div>
 </div>

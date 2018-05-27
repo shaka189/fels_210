@@ -81,7 +81,7 @@ p {
 }
 
 #user_profile {
-  width: 200px;
+  width: 50px;
   color: $white;
   cursor: pointer;
   img {
@@ -573,4 +573,21 @@ iframe {
 
 .users.follow {
   padding: 0;
+}
+
+.input-group-addon {
+  width: 150px !important;
+}
+
+img{
+  width: 5%;
+  height: 5%;
+}
+
+.scrollbar
+{
+  height: 200px;
+  background: $gray-lighter;
+  overflow-y: scroll;
+  margin-top: 25px;
 }
