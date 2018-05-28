@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update_attributes lesson_params
+      LessonFinishMailer.send_mail_finish_lesson(@lesson).deliver_later
       flash[:success] = t "update_success"
       Activity.create(action_type: "finish lesson", action: @lesson.category.name ,user_id: current_user.id)
       redirect_to lesson_path @lesson
