@@ -15,9 +15,16 @@
   <td><%= lesson.correct.size %> / <%= lesson.words.size %></td>
   <td>
     <% if lesson.status %>
-      <%= link_to t("view"), lesson, class: "btn btn-primary" %>
+      <%= link_to t(:view), lesson, class: "col-md-5 btn btn-success" %>
     <% else %>
-      <%= link_to t("start"), lesson, class: "btn btn-primary" %>
-    <% end %>
+      <% unless lesson.time_start %>
+        <%= form_for [lesson] do |f| %>
+          <%= f.hidden_field :time_start, value: Time.now %>
+          <%= f.submit t(:start), class: "col-md-5 btn btn-warning" %>
+        <% end %>
+        <% else %>
+        <%= link_to t(:continue), lesson, class: "col-md-5 btn btn-primary" %>
+      <% end %>
+      <% end %>
   </td>
 </tr>

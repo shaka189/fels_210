@@ -20,6 +20,7 @@ en:
       category: "Category"
       answer: "Answer"
   fillname: "Fill name ..."
+  fillcontent: "Fill content ..."
   search: "Search"
   not_enough_word: "This category has not enough word, can't start lesson"
   flash:
@@ -37,3 +38,7 @@ en:
   update: "Update"
   you_sure: "You sure???"
   filter: "Filter"
+  create_lesson: "Create lesson"
+  not_found: "Must select category"
+  start: "Start"
+  start_lesson: "Start lesson"

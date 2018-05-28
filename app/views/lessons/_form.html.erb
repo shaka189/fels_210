@@ -1,3 +1,4 @@
+<% unless @lesson.status %>
 <div id="clockdiv">
   <p class="time-text"><%= t "time_remaining" %></p>
   <span id="time-remain" data-time-remain="<%= @time_remain %>"></span>
@@ -10,7 +11,7 @@
     <div class="smalltext"><%= t "time.seconds" %></div>
   </div>
 </div>
-
+<% end %>
 <div class="lesson">
   <h1><%= t "lesson" %></h1>
   <p>

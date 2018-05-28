@@ -9,12 +9,12 @@ class Lesson < ApplicationRecord
   before_create :create_word
   scope :order_date_desc, ->{order created_at: :desc}
   validate :words_quantity, on: :create
-  scope :select_fields, ->{select :id, :name, :status, :progress, :created_at, :category_id}
+  scope :select_fields, ->{select :id, :name, :status, :progress, :created_at, :category_id, :time_start}
   delegate :correct, :to => :answers, :allow_nil => true
   after_create :send_mail
 
   def time_remaining
-    category.duration * 60 - (Time.zone.now - self.created_at).to_i
+    category.duration * 60 - (Time.zone.now - self.time_start).to_i
   end
 
   private

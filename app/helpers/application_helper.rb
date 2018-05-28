@@ -11,4 +11,8 @@ module ApplicationHelper
    link_to name, "javascript:void(0)", onclick: "add_fields(this,\"#{association}\",
     \"#{j(fields)}\")", class: "btn btn-primary"
   end
+
+  def category_collection
+    Category.select(:id, :name)
+  end
 end

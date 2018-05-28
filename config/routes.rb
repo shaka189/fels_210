@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :lessons, only: %i(create)
   end
   resources :activities, only: %i(index show)
-  resources :lessons, only: %i(index show update)
+  resources :lessons
   resources :relationships,       only: [:create, :destroy]
 
   devise_for :users

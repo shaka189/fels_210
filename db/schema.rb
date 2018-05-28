@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_05_28_015857) do
     t.integer "progress"
     t.bigint "user_id"
     t.bigint "category_id"
+    t.datetime "time_start"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_lessons_on_category_id"
