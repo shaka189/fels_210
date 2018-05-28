@@ -11,6 +11,7 @@ class Lesson < ApplicationRecord
   validate :words_quantity, on: :create
   scope :select_fields, ->{select :id, :name, :status, :progress, :created_at, :category_id}
   delegate :correct, :to => :answers, :allow_nil => true
+  after_create :send_mail
 
   def time_remaining
     category.duration * 60 - (Time.zone.now - self.created_at).to_i
@@ -27,4 +28,9 @@ class Lesson < ApplicationRecord
   def create_word
     self.words = category.words.limit(Settings.word).order(Arel.sql('RAND()'))
   end
+
+  def send_mail
+    NotifyFinishLessonJob.delay(run_at: 10.seconds.from_now).perform_later(self)
+  end
 end
+
