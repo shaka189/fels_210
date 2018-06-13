@@ -1,13 +1,12 @@
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-4">
   <div class="row">
     </br>
-    <%= link_to "create new User", new_admin_user_path, class: "btn btn-info"%>
+    <%= link_to t("create_user"), new_admin_user_path, class: "btn btn-info"%>
     <br/><br/>
     <table class="table table-striped">
       <thead>
         <tr>
           <th><%= t ".email" %></th>
-          <th><%= t ".action" %></th>
         </tr>
       </thead>
       <tbody>

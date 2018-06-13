@@ -19,5 +19,21 @@ en:
       word_content: "Word Content"
       category: "Category"
       answer: "Answer"
-
-
+  fillname: "Fill name ..."
+  search: "Search"
+  not_enough_word: "This category has not enough word, can't start lesson"
+  flash:
+    create_success: "Create success"
+    update_success: "Update success"
+  submit: "Submit"
+  update_success: "Finish lesson"
+  create: "Create"
+  admin:
+    words:
+      create:
+        flash:
+          create_fail: "You must fill all of blank, the word has 1 correct answer"
+  delete_cate: Delete category success"
+  update: "Update"
+  you_sure: "You sure???"
+  filter: "Filter"

@@ -1,14 +1,46 @@
 <div class="row">
-  <aside class="col-md-4">
+<div class="col-xs-6 col-xs-offset-1">
+  <aside>
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user, size: Settings.gravatar %>
+        <%= gravatar_for @user, size: 50 %>
       </h1>
       <p>
         <%= @user.email %>
       </p>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
-  <%= link_to t(".wordslist"), words_path, class: "btn btn-primary" %>
-  <%= link_to t(".startlesson"), categories_path, class: "btn btn-primary" %>
+  <%= render 'follow_form' if user_signed_in? %>
+</div>
+
+<div class="col-xs-4 col-xs-offset-1">
+<div class="scrollbar">
+  <% @activities.each do |activity| %>
+    <ul>
+      <div><%= t activity.action_type %> <%= activity.action %></div>
+      <small><%= activity.created_at %> </small>
+    </ul>
+  <% end %>
+</div>
+</div>
+
+   <h1 class="text-center"><%= t "lessons" %></h1>
+<table class="table table-hover">
+  <tr>
+    <th><%= t "create_at" %></th>
+    <th><%= t "category" %></th>
+    <th><%= t "status" %></th>
+    <th><%= t "score" %></th>
+    <th></th>
+  </tr>
+  <%= render partial: "lessons/lesson", collection: @lessons  %>
+</table>
+<%= paginate @lessons %>
+
+</div>
+<div class="col-md-4">
+
 </div>

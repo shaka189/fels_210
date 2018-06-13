@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to category.name, category_path(category) %></td>
-  <td><%= link_to t(:details), categories_path, class: "btn btn-primary" %></td>
-  <td><%= link_to t(:create_exam), category_lessons_path(category), method: :post, class: "btn btn-primary" %></td>
+  <td><%= category.name %></td>
+  <td><%= link_to t("details"), category_path(category), class: "btn btn-primary" %></td>
+  <td><%= link_to t("create_exam"), category_lessons_path(category), method: :post, class: "btn btn-primary" %></td>
 </tr>

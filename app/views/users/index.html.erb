@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="row">
+    </br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t ".email" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "user", collection: @users %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div>

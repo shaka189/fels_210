@@ -1,14 +1,18 @@
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for current_user, size: 50 %>
-      </h1>
-      <p>
-        <%= current_user.email %>
-      </p>
-    </section>
-  </aside>
-  <%= link_to t(".wordslist"), words_path, class: "btn btn-primary" %>
-  <%= link_to t(".startlesson"), categories_path, class: "btn btn-primary" %>
+  <aside class="col-md-4 col-md-offset-4">
+  <%= link_to t(".words_list"), words_path, class: "btn-lg btn-primary" %>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <%= link_to t(".start_lesson"), categories_path, class: "btn-lg btn-primary" %>
 </div>
+<h1 class="text-center"><%= t "all_lesson" %></h1>
+<table class="table table-hover">
+  <tr>
+    <th><%= t "create_at" %></th>
+    <th><%= t "category" %></th>
+    <th><%= t "status" %></th>
+    <th><%= t "score" %></th>
+    <th></th>
+  </tr>
+  <%= render partial: "lessons/lesson", collection: @lessons  %>
+</table>
+<%= paginate @lessons %>

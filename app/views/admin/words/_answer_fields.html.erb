@@ -1,11 +1,15 @@
 <p class="fields">
   <span class="input-group-addon">
     <%= f.text_field :content %>
+    <%= link_to "#", class: "btn-remove-answer" do %>
+    <span class="glyphicon glyphicon-trash"></span>
+    <% end %>
   </span>
   <span class="input-group-addon">
-    <%= f.label :correct %>
+   <%= f.label :correct %>
     <%= f.check_box :correct %>
+
     <%= f.hidden_field :_destroy %>
-    <%= link_to "remove", "#", class: "btn-remove-answer" %>
+
   </span>
 </p>

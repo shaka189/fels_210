@@ -81,7 +81,7 @@ p {
 }
 
 #user_profile {
-  width: 200px;
+  width: 50px;
   color: $white;
   cursor: pointer;
   img {
@@ -495,5 +495,99 @@ iframe {
 }
 
 .admin-c{
-  margin-left: 30%
+   margin-left: 30%
+}
+
+.user-c{
+  margin-left: 9%
+}
+
+#clockdiv{
+  font-family: sans-serif;
+  color: rgb(255,255,255);
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+  position: fixed;
+  top: 2em;
+  right: 1em;
+  & > div{
+    width: 100px;
+    padding: 10px;
+    border-radius: 3px;
+    background: rgb(232,232,232);
+    display: inline-block;
+
+    & > span{
+      padding: 15px;
+      border-radius: 3px;
+      background: rgb(200,200,200);
+      display: inline-block;
+    }
+  }
+}
+
+.smalltext{
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+.time-text{
+  color:  #696969;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
+.input-group-addon {
+  width: 150px !important;
+}
+
+img{
+  width: 5%;
+  height: 5%;
+}
+
+.scrollbar
+{
+  height: 200px;
+  background: $gray-lighter;
+  overflow-y: scroll;
+  margin-top: 25px;
 }

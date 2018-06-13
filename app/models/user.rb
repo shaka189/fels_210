@@ -16,4 +16,17 @@ class User < ApplicationRecord
   paginates_per Settings.perpage
   scope :order_date_desc, ->{order created_at: :desc}
   scope :select_fields, ->{select :id, :email}
+
+   def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
+  end
+
 end

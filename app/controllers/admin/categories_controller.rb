@@ -1,8 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :load_category, only: %i(update destroy)
+  before_action :load_category, only: %i(edit update destroy)
 
   def index
-    @categories = Category.select_fields.order_date_desc.page params[:page]
+     @q = Category.search params[:q]
+    @categories = @q.result.select_fields.order_date_desc.page params[:page]
   end
 
   def new
@@ -31,7 +32,7 @@ class Admin::CategoriesController < Admin::BaseController
   def destroy
     begin
       @category.destroy
-      flash[:success] = t :delete_cate
+      flash[:success] = t "delete_cate"
     rescue ActiveRecord::DeleteRestrictionError => e
       @category.errors.add(:exception, e)
       flash[:error] = "#{e}"
@@ -43,7 +44,7 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def category_params
-    params.require(:category).permit :name
+    params.require(:category).permit :name, :duration
   end
 
   def load_category
