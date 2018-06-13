@@ -10,3 +10,10 @@ filter_options:
   - all
   - learned
   - unlearned
+user:
+  email:
+    maximum_length: 255
+  password:
+    minimum_length: 6
+answer_size: 1
+duration: 3

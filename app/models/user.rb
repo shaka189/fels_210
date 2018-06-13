@@ -14,10 +14,18 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   paginates_per Settings.perpage
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true,
+    length: {maximum: Settings.user.email.maximum_length},
+    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  validates :password, presence: true,
+    length: {minimum: Settings.user.password.minimum_length}, allow_nil: true
+
   scope :order_date_desc, ->{order created_at: :desc}
   scope :select_fields, ->{select :id, :email}
 
-   def follow other_user
+  def follow other_user
     following << other_user
   end
 
