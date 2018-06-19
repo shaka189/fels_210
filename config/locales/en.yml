@@ -25,6 +25,7 @@ en:
   flash:
     create_success: "Create success"
     update_success: "Update success"
+    update_fail: "Update fail"
   submit: "Submit"
   update_success: "Finish lesson"
   create: "Create"
@@ -37,3 +38,5 @@ en:
   update: "Update"
   you_sure: "You sure???"
   filter: "Filter"
+  message:
+    must_a_answer_correct: "Must a answer correct"
