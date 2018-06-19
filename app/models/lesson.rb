@@ -25,7 +25,7 @@ class Lesson < ApplicationRecord
   private
 
   def words_quantity
-    if category.words.count <= Settings.word
+    if category.words.count < Settings.word
       errors.add :error, I18n.t("not_enough_word")
     end
   end

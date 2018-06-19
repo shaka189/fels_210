@@ -16,8 +16,8 @@ RSpec.describe Word, type: :model do
   describe "#one" do
     it "oneanswer" do
       word = FactoryBot.build :word, category: category
-      if word.answers.select{|answer| answer.correct}.size == Settings.answer_size
-        expect(word.errors[:one]).not_to include(I18n.t("message.must_a_answer_correct"))
+      if word.answers.select{|answer| answer.correct}.size <= Settings.answer_size
+        expect(word.errors[:one]).to include(I18n.t("message.must_a_answer_correct"))
       end
     end
   end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :lesson do
-    name {Faker::Internet.email}
+    name {Faker::Name.name}
     status true
   end
 end

@@ -15,9 +15,9 @@
   <td><%= lesson.correct.size %> / <%= lesson.words.size %></td>
   <td>
     <% if lesson.status %>
-      <%= link_to t("view"), lesson, class: "btn btn-primary" %>
+      <%= link_to t("view"), lesson_path(lesson), class: "btn btn-primary" %>
     <% else %>
-      <%= link_to t("start"), lesson, class: "btn btn-primary" %>
+      <%= link_to t("start"), lesson_path(lesson), class: "btn btn-primary" %>
     <% end %>
   </td>
 </tr>

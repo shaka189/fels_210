@@ -1,15 +1,5 @@
 require "factory_bot_rails"
-require "simplecov"
 require "minitest/autorun"
-require "rack/test"
-require "builder"
-require "nokogiri"
-require "rails-html-sanitizer"
-require "erubi"
-require "thor"
-require "method_source"
-require "rake"
-require "selenium-webdriver"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

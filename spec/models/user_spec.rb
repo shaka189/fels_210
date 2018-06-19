@@ -1,6 +1,11 @@
 require "rails_helper"
 
+RSpec.configure do |c|
+  c.use_transactional_examples = true
+end
+
 RSpec.describe User, :type => :model do
+
   let(:user) {FactoryBot.create :user}
   subject {user}
 
@@ -22,7 +27,7 @@ RSpec.describe User, :type => :model do
   end
 
   context "when pasword is not valid" do
-    before {subject.email = ""}
+    before {subject.password = ""}
     it {is_expected.not_to be_valid}
   end
 
@@ -66,4 +71,34 @@ RSpec.describe User, :type => :model do
     it {is_expected.to have_db_column(:current_sign_in_ip).of_type(:string)}
     it {is_expected.to have_db_column(:last_sign_in_ip).of_type(:string)}
    end
+
+  context "run in transactions" do
+    it "count user has been created" do
+      expect(User.count).to eq 2
+    end
+
+    it "count user has been created after create more" do
+      FactoryBot.create :user
+      expect(User.count).to eq 3
+    end
+
+    it "count user has been created in a previous example" do
+      expect(User.count).to eq 2
+    end
+  end
+
+  context "method test" do
+    let(:user1) {FactoryBot.create :user}
+    it "method follow and following" do
+      user.follow(user1)
+      expect(user1.followers.count).to eq 1
+      expect(user.following?(user1)).to eq true
+    end
+
+    it "method unfollow and following" do
+      user.unfollow(user1)
+      expect(user1.followers.count).to eq 0
+      expect(user.following?(user1)).to eq false
+    end
+  end
 end
